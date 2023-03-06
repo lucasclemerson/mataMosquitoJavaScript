@@ -4,6 +4,7 @@ var largura = 0
 var vidas = 1
 var tempo = 15
 var criaMosquitoTempo = 1500
+var score = 0
 
 var nivel = window.location.search
 nivel = nivel.replace('?' , '')
@@ -31,6 +32,7 @@ var cronometro = setInterval( function(){
         window.location.href = 'vitoria.html'
     }
     document.getElementById('cronometro').innerHTML = tempo
+    document.getElementById('score').innerText = score;
 }, 1000)
 
 ajustaTamanhoPalcoJogo()
@@ -66,6 +68,8 @@ function posicaoRandomica(){
     mosquito.id = 'mosquito'
     mosquito.onclick = function(){
         this.remove()
+        score ++ ;
+        document.getElementById('score').innerText = score;
     }
 
     document.body.appendChild(mosquito)
